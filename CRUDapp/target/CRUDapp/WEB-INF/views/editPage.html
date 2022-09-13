@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit car</title>
+</head>
+<body>
+
+
+<form th:method="PATCH" th:action="@{/cars/{id}(id=${car.getId()})}" th:object="${car}">
+
+    <label for="model">Model:</label>
+    <input type="text" th:field="*{model}" id="model">
+    <div style="color: darkred" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">Model error</div>
+    <br>
+
+    <label for="year">Year:</label>
+    <input type="text" th:field="*{year}" id="year">
+    <div style="color: darkred" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Year error</div>
+    <br>
+
+    <label for="color">Color:</label>
+    <input type="text" th:field="*{color}" id="color">
+    <div style="color: darkred" th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Color error</div>
+    <br><br>
+
+    <input type="submit" value="Update!">
+</form>
+
+
+</body>
+</html>
